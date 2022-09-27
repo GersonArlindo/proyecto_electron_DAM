@@ -1,0 +1,28 @@
+1. Crear carpeta que va a contener nuestro proyecto:
+2. abrimos una terminal y ejecutamos npm init -y para generar el package.json
+3. instalamos modulos que necesitamos asi:
+npm i electron promise-mysql electron-reload o mejor usar: npm i electron@8.2.1 promise-mysql electron-reload
+4. Creamos una carpeta dentro de nuestro proyecto: src -> index.js
+5. Nos vamos al package.json y cambiamos la ruta del main
+6. Cambiamos test por start
+7. Inicialmente en el index.js ponemos console.log
+8. Ponemos en Cosola
+9. Creamos los archivos database.js y main.js
+10. Entramos al main y copiamos el codigo
+11. creamos una carpeta llamada UI dentro de src y dentro cremos un index.html
+12. Entramos al index y creamos la estructura basica de html
+13. Ahora entramos al index.js y eliminamos el hola mundo y copiamos el codigo
+14. ejecutamos con npm start
+15. entramos al archivo database.js y copiamos el codigo
+16. Creamos la base de datos electrondb
+17. Nos vamos a https://bootswatch.com/ y descargamos cosmo y lo ponemos en la carpeta UI
+18. abajo de title lo llamamos
+19. Ahora cambiamos el h1 inicial por el codigo basico de la pagina
+20. Creamos en ui un archivo llamdo app.js para capturar el evento del form y ponemos un console.log
+21. Antes del body creamos una etiqueta script para poder llamar ese archivo.
+23. Abrimos View/TogleDeveloperTools y alli vemos el console.log
+24. Ahora cambiamos el console.log y escribimos el codigo
+25. Ejecutamos npm i electron@8.2.1 para bajar la version y no tener problemas si no funciona la version del paso 3
+26. nos vamos a phpmyadmin y creamos una tabla 
+    'product" campos id, name, descripcion, price (7,3)
+**********************MIN 42********************************Ya se puede insertar***********************
