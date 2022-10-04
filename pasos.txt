@@ -6,7 +6,7 @@ npm i electron promise-mysql electron-reload o mejor usar: npm i electron@8.2.1 
 5. Nos vamos al package.json y cambiamos la ruta del main
 6. Cambiamos test por start
 7. Inicialmente en el index.js ponemos console.log
-8. Ponemos en Cosola
+8. Ponemos en Cosola npm start
 9. Creamos los archivos database.js y main.js
 10. Entramos al main y copiamos el codigo
 11. creamos una carpeta llamada UI dentro de src y dentro cremos un index.html
@@ -25,4 +25,28 @@ npm i electron promise-mysql electron-reload o mejor usar: npm i electron@8.2.1 
 25. Ejecutamos npm i electron@8.2.1 para bajar la version y no tener problemas si no funciona la version del paso 3
 26. nos vamos a phpmyadmin y creamos una tabla 
     'product" campos id, name, descripcion, price (7,3)
-**********************MIN 42********************************Ya se puede insertar***********************
+**************************************************Ya se puede insertar***********************
+27. Retornamos el producto que estamos guardando para poder mostrarlo en el main.js 
+28. En el app.js añadimos el main.createProduct(newProduct) a una constante y la convertimos en async await
+29. Simpre en el app.js creamos otra funcion getProduct y copiamos las primeras dos lineas comentadas 
+y la ejecutamos hasta el final donde no hay codigo
+30. Dentro del main.js creamos otra funcion que se llame getProducts()
+31. siempre dentro del main.js en module.exports exportar la funcion  getProducts
+32. Ejecutamos la app y revisamos en consola que si nos esta trayendo un array con todos los registros
+33. en el index.html crearemos otra seccion para colocar elementos agregados mediante javascript
+34. en app.js creamos otra funcion llamada renderProducts y copiamos el codigo 
+y agregamos la referencia mediante el documento.getElementById el id del div de html
+35. en app.js Comentamos donde estamos llamando a getProducts(); y en su lugar creamos la funcion init()
+36. simepre en el mismo archivo creamos una variable products que al inicio sera una lista vacia.
+37. Modificamos la funcion getProducts y asiganos a esa lista vacia los productos
+38. Nos vamos al archivo html y agregamos otra etiqueta link
+39. Creamos ese archivo app.css dentro de ui para darle un alto a las tarjetas de los productos
+40. Vamos a implementar una libreria de animacion llamada animatecss, lo buscamos en el navegador 
+y agregamos mediante el cdn en el index.html
+41. nos vamos a app.js y abajo del paso 28 agregamos getProducts();
+42. Vamos a reiniciar el formulario en el archivo app.js vamos a copiar lo siguiente
+******************************Ya se puede insertar y listar productos***********************
+43. Nos vamos al archivo main.js y creamos una funcion para eliminar un producto llamada deleteProduct 
+y al igual que las otras funciones las exportamos
+44. en el archivo app.js agregamos una funcion que se ejecuta cuando presionamos el btnDelete
+Actividad agregar confirmacion a la hora de borrar un registro
