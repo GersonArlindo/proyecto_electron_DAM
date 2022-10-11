@@ -50,3 +50,11 @@ y agregamos mediante el cdn en el index.html
 y al igual que las otras funciones las exportamos
 44. en el archivo app.js agregamos una funcion que se ejecuta cuando presionamos el btnDelete
 Actividad agregar confirmacion a la hora de borrar un registro
+******************************Ya se puede eliminar tambien*************************************
+45. Agregamos el evento onclic al boton editar en app.js
+46. Agregamos una funcion en el main.js llamada getProductById() y siempre la exportamos
+47. Siempre en el app.js creamos la funcion editProduct()
+48. Definimos dos variables globales llamadas editingStatus y editProductId en el app.js
+49. Vamos a modificar el paso 28 y agregamos una condicional para ver si se esta editando o agregando
+50. en el main.js creamos otra funcion updateProduct y la exportamos
+******************************Listo crud terminado*********************************************

@@ -10,17 +10,30 @@ const productsList = document.getElementById('products')
 //36. Creamos una lista vacia
 let products = []
 
+//48. Variable de estado para editar productos
+let editingStatus = false;
+let editProductId = ''
 
-productForm.addEventListener('submit', async (e) =>{
-    e.preventDefault(); 
+
+productForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
     const newProduct = { //Objeto para enviar los valores de los input
         name: productName.value,
         price: productPrice.value,
         descripcion: productDescripcion.value
     }
-    //28. Agregando el newProduct en una variable y convirtiendolo en async await linea 9 y 17
-    const result = await main.createProduct(newProduct);
-    console.log(result);
+
+    //49. Condicion para ver si editamos o ingresamos
+    if (!editingStatus) {
+        //28. Agregando el newProduct en una variable y convirtiendolo en async await linea 9 y 17
+        const result = await main.createProduct(newProduct);
+        console.log(result);
+    }else{
+        await main.updateProduct(editProductId, newProduct);
+        editingStatus = false;
+        editProductId = '';
+    }
+
 
     //42. Reseteo del formulario
     productForm.reset();
@@ -42,22 +55,33 @@ const getProducts = async () => {
 
 
 //44. Creando funcion para deleteProduct
-async function deleteProduct(id){
-   const response = confirm('Desea eliminar este producto?')
-   if(response){
-    await main.deleteProduct(id);
-    await getProducts();
-   }else{
-    return;
-   }
-   
+async function deleteProduct(id) {
+    const response = confirm('Desea eliminar este producto?')
+    if (response) {
+        await main.deleteProduct(id);
+        await getProducts();
+    } else {
+        return;
+    }
+
+}
+
+//47. Creando funcion para editProduct
+async function editProduct(id) {
+    const product = await main.getProductById(id);
+    productName.value = product.name;
+    productPrice.value = product.price;
+    productDescripcion.value = product.descripcion;
+    editingStatus = true;
+    editProductId = product.id
 }
 
 //34. Creamos la funcion renderProducts la cual recibira la lista de productos
-function renderProducts(products){
+function renderProducts(products) {
     productsList.innerHTML = ''; //limpiar cada que se llame para evitar duplicidad de datos
     products.forEach(product => { //Añadiendo los elementos a la lista para pintarlos
         //Lo colocamos entre comillas oblicuas para poner varias lineas
+        //45. agregamos evento onclick al boton editar
         productsList.innerHTML += ` 
             <div class="card card-body my-2 animated fadeInLeft">
             <h4>${product.name}</h4>
@@ -67,7 +91,7 @@ function renderProducts(products){
                 <button class="btn btn-danger" onclick="deleteProduct('${product.id}')">
                     Eliminar
                 </button>
-                <button class="btn btn-secondary">
+                <button class="btn btn-secondary" onclick="editProduct('${product.id}')">
                     Editar
                 </button>
             </p>
@@ -79,7 +103,7 @@ function renderProducts(products){
 //getProducts();
 
 //35. agregando la funcion init()
-async function init(){
+async function init() {
     await getProducts();
 }
 

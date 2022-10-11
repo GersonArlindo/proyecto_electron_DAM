@@ -34,6 +34,20 @@ async function deleteProduct(id) {
     return result;
 }
 
+//46. getProductById
+async function getProductById(id){
+    const conn = await getConnection();
+    const result = await conn.query('SELECT * FROM product WHERE id = ?', id);
+    return result[0]; //De toda la lista devuelta solo quiero el primer objeto
+}
+
+//50. updateProduct
+async function updateProduct(id, product){
+    const conn = await getConnection();
+    const result = await conn.query('UPDATE product SET ? WHERE id = ?', [product, id]);
+    console.log(result)
+}
+
 
 //CREANDO LA VENTANA
 let window
@@ -53,5 +67,7 @@ module.exports = { //Vamos a exportar la funcion para que sea utilizada en otros
     createWindow,
     createProduct,
     getProducts,
-    deleteProduct
+    deleteProduct,
+    getProductById,
+    updateProduct
 }
